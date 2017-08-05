@@ -1,0 +1,162 @@
+.home {
+    background-color: $background-col
+}
+
+#map {
+    margin-top: 25px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.rating-table {
+    width: 100%;
+}
+
+.ion-md-star {
+    color: gold !important;
+}
+
+.ion-md-star-outline {
+    color: gold !important;
+}
+
+.rating-table i {
+    color: #47525E;
+}
+
+.caricon {
+    font-size: 30px;
+    float: right;
+    padding-right: 20px;
+    padding-top: 8px;
+}
+
+.rating-table ion-icon {
+    color: #47525E;
+}
+
+.errorDiv {
+    padding: 15px;
+    width: 100%;
+    background-color: #bf3737;
+    border: 1px solid #b61818;
+    color: white;
+    font-size: 9pt;
+    position: absolute;
+}
+
+.errorDiv .title {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.rating-table span {
+    color: #47525E;
+    font-size: 8pt;
+}
+
+.spinner {
+    width: 100%;
+    text-align: center;
+    padding-top: 25px
+}
+
+.result-item {
+    height: 45px;
+    line-height: 45px;
+    font-size: 15px;
+    color: #47525E;
+    background-color: white;
+    padding-left: 10px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.result-item .result-name {
+    color: #47525E;
+    float: left;
+    width: 70%;
+    height: 45px;
+    line-height: 45px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden
+}
+
+.result-item .result-distance {
+    color: #47525E;
+}
+
+.result-item .result-arrow {
+    color: #47525E;
+    float: right;
+    margin-right: 10px;
+    height: 45px;
+    line-height: 45px;
+}
+
+.menubutton {
+    float: left;
+    margin-top: 20px;
+    margin-left: 12px;
+    box-shadow: none;
+    background-color: transparent;
+    border: 1px solid white;
+    width: 40px;
+}
+
+.findmebutton {
+    border: 1px solid white;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50%;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.findmebuttonanim {
+    animation-name: MoveUpDown;
+    animation-duration: 300ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes MoveUpDown {
+    0% {
+        margin-top: 50%;
+    }
+    100% {
+        margin-top: 5%;
+    }
+}
+
+.app-font-15 ion-label {
+    white-space: inherit;
+    font-size: 15px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+}
+
+.app-font-25 ion-label {
+    white-space: inherit;
+    font-size: 25px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+}

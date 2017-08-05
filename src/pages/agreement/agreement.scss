@@ -1,0 +1,27 @@
+.agreement {
+    background-color: $background-col;
+    color: white;
+}
+
+.agreement-text {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.outlinebutton {
+    border: 1px solid white;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}

@@ -1,0 +1,87 @@
+.review {
+    background-color: $background-col
+}
+
+.place-title {
+    font-size: 18pt;
+    margin: 0px 10px 0px 10px;
+}
+
+.place-address {
+    font-size: 12pt;
+    margin: 0px 10px 0px 10px;
+}
+
+.open-now {
+    font-size: 12pt;
+    margin-top: 25px;
+    margin: 10px;
+}
+
+.button-bar {
+    width: 100%;
+}
+
+.button-bar div {
+    background-color: white;
+    color: black;
+}
+
+.button-bar ion-icon {
+    font-size: 26px;
+    background-color: white;
+    color: black;
+}
+
+.button-bar p {
+    margin: 0;
+    background-color: white;
+    color: black;
+}
+
+.outlinebutton {
+    border: 1px solid white;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.reviewtable {
+    margin-top: 15px;
+}
+
+.reviewtable .contact-icon {
+    text-align: center;
+    width: 10%;
+    height: 100px;
+}
+
+.profile-image {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75px;
+    height: 75px;
+    border: 0;
+}
+
+.ratingstars ul {
+    padding: 0px;
+    &.rating li {
+        background: none;
+        color: #ffb400;
+        ion-icon {
+            font-size: 15px;
+        }
+    }
+}
+
+.reviewtable .contact-icon>i {
+    font-size: 28px;
+}

@@ -1,0 +1,68 @@
+<ion-content class="home">
+    <button ion-button menuToggle class="menubutton">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <div class="errorDiv" [hidden]="!showError">
+        <ion-icon name="alert"></ion-icon><span class="title">Oh no, something has gone wrong :(</span>
+        <p>{{errorText}}</p>
+
+    </div>
+    <div [ngClass]="classMapFindMe" (click)="findPlacesClick()">{{getButtonCaption()}}</div>
+    <div #results id="results">
+        <div #map id="map"></div>
+        <ion-list>
+            <div *ngFor="let item of locationsResult; let i = index;">
+                <div class="result-item">
+                    <span (click)="selectResult(item.internalId)" class="result-name">{{item.name}}</span>
+                    <span (click)="selectResult(item.internalId)" class="result-distance">{{item.distanceText}}</span>
+                    <ion-icon (click)="openReview(item.internalId)" class="result-arrow" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+                </div>
+                <div class="result-item" style="height: 90px;" [hidden]="currentSelectedresult !== item.internalId">
+                    <table class="rating-table" [hidden]="retVal.length === 0 || reviewLoading">
+                        <tr>
+                            <td style="width:5%;"><i class="fa fa-plug" aria-hidden="true"></i></td>
+                            <td style="width:40%; text-align:right;">
+                                <ion-icon name="{{getClassName(1, item.power_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(2, item.power_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(3, item.power_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(4, item.power_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(5, item.power_value)}}"></ion-icon>
+                            </td>
+                            <td style="width:5%;">&nbsp;</td>
+                            <td style="width:5%;"><i class="fa fa-usd" aria-hidden="true"></i></td>
+                            <td style="width:40%; text-align:right;">
+                                <ion-icon name="{{getClassName(1, item.money_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(2, item.money_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(3, item.money_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(4, item.money_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(5, item.money_value)}}"></ion-icon>
+                            </td>
+                            <td style="width:5%;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td style="width:5%;">
+                                <ion-icon ios="ios-wifi" md="ios-wifi"></ion-icon>
+                            </td>
+                            <td style="width:40%; text-align:right;">
+                                <ion-icon name="{{getClassName(1, item.wifi_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(2, item.wifi_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(3, item.wifi_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(4, item.wifi_value)}}"></ion-icon>
+                                <ion-icon name="{{getClassName(5, item.wifi_value)}}"></ion-icon>
+                            </td>
+                            <td style="width:5%;">&nbsp;</td>
+                            <td style="width:50%;" colspan="3">
+                                <span style="width:100%;" (click)="openReview(item.internalId)">Reviews ({{retVal.length}})</span>
+                                <ion-icon name="car" class="caricon" (click)="openGoogleMaps(item.internalId)"></ion-icon>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="spinner" [hidden]="!reviewLoading">
+                        <ion-spinner></ion-spinner>
+                    </div>
+                    <p [hidden]="retVal.length > 0" style="color: black; margin-top: 0; line-height: 20px;">There doesn't seem to be any<br/>reviews for this location.<br/><br/><span style="color: black;" (click)="createReview(item.internalId)">Be the first!</span></p>
+                </div>
+            </div>
+        </ion-list>
+    </div>
+</ion-content>

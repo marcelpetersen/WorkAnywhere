@@ -1,0 +1,42 @@
+ let that = this;
+
+            let creds = (firebase.auth.FacebookAuthProvider as any).credential('access_token');
+            that.afAuth.auth.signInWithCredential(creds);
+            that.afAuth.authState.subscribe(user => {
+                if (user) {
+
+                    that.userRetVal.id = user.uid;
+                    that.setAuthStatus(true);
+                    that.setUserId(user.uid);
+                    var retVal =
+                        {
+                            //'facebook_id': user.profile.id,
+                            'name': user.displayName,
+                            'user_id': user.uid,
+                            'success': true
+                        };
+
+                    let facebookUserSubscription = that.db.list('/users', {
+                        query: {
+                            orderByChild: 'user_id',
+                            equalTo: user.uid
+                        }
+                    });
+                    facebookUserSubscription.subscribe(snapshots => {
+                        if (snapshots.length === 0) {
+                            var items = that.db.list('/users');
+                            var newUser =
+                                {
+                                    'user_id': user.uid,
+                                    //'facebook_id': response.authResponse.userID
+                                };
+                            items.push(newUser);
+                        }
+                    });
+                    resolve(retVal);
+                    // loading.dismiss();
+                    return;
+                } else {
+                    that.setAuthStatus(false);
+                }
+            });

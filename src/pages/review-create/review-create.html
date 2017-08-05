@@ -1,0 +1,38 @@
+<ion-content class="review-create">
+    <div>
+        <ion-icon (click)="backClick()" name="arrow-round-back" style="font-size: 16pt; margin: 15px;"></ion-icon>
+    </div>
+    <div *ngIf="!currentLoggedIn" class="centerdiv" style="padding-top: 30px;">
+        <h1>Whoops!</h1>
+        <p>Unfortunately to post a review, you need to be logged in.</p>
+        <p>Sign in below using your Facebook profile.</p>
+
+
+        <div style="width: 100%; text-align:center; margin-top: 25px;">
+            <img src="assets/images/facebook2.png" (click)="loginFacebook()" style="width: 60%; margin-left: auto; margin-right: auto;" />
+        </div>
+    </div>
+
+    <div *ngIf="currentLoggedIn">
+        <p style="margin-left: 10px;">How available is power at this location?</p>
+        <div class="centerdiv">
+            <rating [(ngModel)]="powerRating" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"></rating>
+        </div>
+        <p style="margin-left: 10px;">How good is the value for money?</p>
+        <div class="centerdiv">
+            <rating [(ngModel)]="valueRating" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"></rating>
+        </div>
+        <p style="margin-left: 10px;">How good is the Wifi?</p>
+
+        <div class="centerdiv">
+            <rating [(ngModel)]="wifiRating" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"></rating>
+        </div>
+        <p style="margin-left: 10px;">Anything Else?</p>
+        <div class="centerdiv">
+            <textarea [(ngModel)]="comments" style="width: 80%; color: black; height: 100px; margin-left: auto; margin-right: auto;"></textarea>
+        </div>
+        <div class="outlinebutton" (click)="postReview()">Post Review!</div>
+    </div>
+
+
+</ion-content>

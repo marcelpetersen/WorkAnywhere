@@ -1,0 +1,129 @@
+<ion-content class="review">
+    <div>
+        <ion-icon (click)="backClick()" name="arrow-round-back" style="font-size: 16pt; margin: 15px;"></ion-icon>
+    </div>
+    <div style="text-align:center;" [hidden]="!photoUrl">
+        <img [src]="photoUrl" style="width: 50%; height: 120px; margin-left: auto; margin-right: auto;" />
+    </div>
+    <p class="place-title">{{place.name}}</p>
+    <p class="place-address">{{place.vicinity}}</p>
+    <p class="open-now" *ngIf="place.opening_hours">Open Now? {{place.opening_hours.open_now ? 'Yes :)' : 'No :('}}</p>
+    <table class="button-bar">
+        <tr>
+            <td style="width: 33%; height: 60px; text-align: center; background-color: white;" (click)="directionsClick()">
+                <ion-icon name="car"></ion-icon>
+                <p>Directions</p>
+            </td>
+            <td style="width: 33%; height: 60px;  text-align: center; background-color: white;" (click)="callClick()">
+                <ion-icon name="call"></ion-icon>
+                <p>Call</p>
+            </td>
+            <td style="width: 33%;  height: 60px; text-align: center; background-color: white;" (click)="toggleFavourite()">
+                <ion-icon name="star-outline" style="color: black;"></ion-icon>
+                <p>Favourite</p>
+            </td>
+        </tr>
+    </table>
+    <div class="outlinebutton" style="margin-top: 10px;" (click)="postReview()">Post a new Review!</div>
+
+
+    <div *ngFor="let item of reviewResults; let i = index;" style="border-top: 1px solid white; width: 85%; margin-top: 20px; margin-left: auto; margin-right: auto;">
+
+        <table class="reviewtable">
+            <tr>
+                <td rowspan="5"><img class="profile-image" src="https://graph.facebook.com/1513110902085698/picture?type=large"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right; ">Andrew Milici</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">
+                    <i class="fa fa-plug" aria-hidden="true"></i>
+                </td>
+                <td style="text-align: right; width:40%;">
+                    <ion-icon name="{{getClassName(1, item.power)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(2, item.power)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(3, item.power)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(4, item.power)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(5, item.power)}}"></ion-icon>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                </td>
+                <td style="text-align: right; width:40%;">
+                    <ion-icon name="{{getClassName(1, item.value)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(2, item.value)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(3, item.value)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(4, item.value)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(5, item.value)}}"></ion-icon>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">
+                    <ion-icon ios="ios-wifi" md="ios-wifi"></ion-icon>
+                </td>
+                <td style="text-align: right; width:40%;">
+                    <ion-icon name="{{getClassName(1, item.wifi)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(2, item.wifi)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(3, item.wifi)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(4, item.wifi)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(5, item.wifi)}}"></ion-icon>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    {{item.comments}}
+                </td>
+            </tr>
+        </table>
+        <!-- <table class="reviewtable">
+            <tr rowspan="2">
+                <td class="contact-icon">
+                    <!--<ion-icon name="contact"></ion-icon>
+                    <img class="profile-image" [src]="item.imageUrl" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><i class="fa fa-plug" aria-hidden="true"></i></td>
+                <td>
+                    <ion-icon name="{{getClassName(1, item.power)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(2, item.power)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(3, item.power)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(4, item.power)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(5, item.power)}}"></ion-icon>
+                </td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-usd" aria-hidden="true"></i></td>
+                <td>
+                    <ion-icon name="{{getClassName(1, item.value)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(2, item.value)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(3, item.value)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(4, item.value)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(5, item.value)}}"></ion-icon>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">
+                    <ion-icon ios="ios-wifi" md="ios-wifi"></ion-icon>
+                </td>
+
+                <td>
+                    <ion-icon name="{{getClassName(1, item.wifi)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(2, item.wifi)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(3, item.wifi)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(4, item.wifi)}}"></ion-icon>
+                    <ion-icon name="{{getClassName(5, item.wifi)}}"></ion-icon>
+                </td>
+            </tr>
+
+        </table>-->
+    </div>
+
+    <!--comments
+//power
+//value
+//wifi-->
+</ion-content>

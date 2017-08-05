@@ -1,0 +1,56 @@
+.review-create {
+    background-color: $background-col;
+    color: white;
+    padding: 10px;
+}
+
+ul {
+    padding: 0px;
+    &.rating li {
+        padding: 5px 10px;
+        background: none;
+        color: #ffb400;
+        ion-icon {
+            font-size: 30px;
+        }
+    }
+}
+
+.facebookbutton {
+    width: 200px;
+    height: 25px;
+    background-color: #5070a9;
+    color: white;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: table-cell;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+
+.facebookbutton span {
+    margin-left: 10px;
+    font-size: 10pt;
+    font-weight: bold;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.centerdiv {
+    width: 100%;
+    text-align: center;
+}
+
+.outlinebutton {
+    border: 1px solid white;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}

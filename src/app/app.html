@@ -1,0 +1,17 @@
+<ion-menu [content]="content">
+    <ion-content>
+        <div style="text-align: center;">
+            <img class="profile-image" [src]="userImageUrl" />
+            <p class="profile-name" [hidden]="isNullOrWhitespace(myName)">{{myName}}</p>
+        </div>
+
+        <div style="vertical-align:bottom; margin-bottom: 10px;  position: absolute; bottom: 0; width: 100%; text-align:center;">
+            <button ion-button full color="danger" [hidden]="!currentLoggedIn" (click)="logout()" style="width: 90%;margin-left: auto;margin-right: auto;">Log Out</button>
+            <img src="assets/images/facebook2.png" [hidden]="currentLoggedIn" (click)="loginFacebook()" style="width: 90%;margin-left: auto;margin-right: auto;" />
+        </div>
+    </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
