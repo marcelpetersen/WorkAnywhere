@@ -8,6 +8,7 @@ import { ReviewCreatePage } from '../review-create/review-create';
 import { UserProvider } from '../../providers/user/user';
 import { Dialogs } from '@ionic-native/dialogs';
 
+
 @IonicPage()
 @Component({
   selector: 'page-review',
@@ -51,15 +52,44 @@ export class ReviewPage {
     this.userId = userProvider.getUserId();
   }
 
+
+
   toggleFavourite() {
-    this.dialogs.alert('Hello world');
-    /* var items = this.db.list('/favourites');
-     var newItem =
-       {
-         'user_id': this.userId,
-         'place_id': this.place.place_id
-       };
-     items.push(newItem);*/
+    let currentLoggedIn = this.userProvider.getAuthStatus();
+    let that = this;
+    if (!currentLoggedIn) {
+      this.dialogs.alert('Please login to use this feature!', "Oh no!");
+    }
+
+    /*   else {
+         let facebookUserSubscription = this.db.list('/favourites', {
+           query: {
+             orderByChild: 'user_id',
+             equalTo: this.userId
+           }
+         });
+         let reviews: any[];
+         facebookUserSubscription.subscribe(snapshots => {
+           if (snapshots.length === 0) {
+   
+             var items = that.db.list('/users');
+             var newUser =
+               {
+                 'user_id': user.uid,
+                 'facebook_id': response.authResponse.userID
+               };
+             items.push(newUser);
+           }
+         });
+       }
+       //this.dialogs.alert('Hello world');
+       /* var items = this.db.list('/favourites');
+        var newItem =
+          {
+            'user_id': this.userId,
+            'place_id': this.place.place_id
+          };
+        items.push(newItem);*/
   }
 
   getClassName(id: number, rating: number) {
